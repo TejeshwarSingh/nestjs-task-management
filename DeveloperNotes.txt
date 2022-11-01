@@ -1,0 +1,18 @@
+Cli
+
+-- new project
+
+nest new <project name>
+nest new nestjs-task-management
+
+-- existing project 
+npm i
+npm audit fix
+
+-- Project structure
+
+eslintrcjs -- linting file
+prettierrc -- formatting the files
+nest-cli.json -- nest configuration
+
+
