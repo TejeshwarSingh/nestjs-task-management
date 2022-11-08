@@ -2,17 +2,105 @@ Cli
 
 -- new project
 
-nest new <project name>
-nest new nestjs-task-management
+    nest new <project name>
+    nest new nestjs-task-management
 
--- existing project 
-npm i
-npm audit fix
+    -- existing project 
+    npm i
+    npm audit fix
 
--- Project structure
+-- npm run build
+    npm run build
 
-eslintrcjs -- linting file
-prettierrc -- formatting the files
-nest-cli.json -- nest configuration
+-- Start 
+    npm run start    
+
+C:\jetworks\GitHub\node\nestjs-task-management>npm run start
+
+> nestjs-task-management@0.0.1 start
+> nest start
+
+[Nest] 35176  - 11/01/2022, 11:55:52 AM     LOG [NestFactory] Starting Nest application...
+[Nest] 35176  - 11/01/2022, 11:55:52 AM     LOG [InstanceLoader] AppModule dependencies initialized +54ms
+[Nest] 35176  - 11/01/2022, 11:55:52 AM     LOG [NestApplication] Nest application successfully started +14ms
+    
+
+------- Project structure -----------------
+
+    eslintrcjs -- linting file
+    prettierrc -- formatting the files
+    nest-cli.json -- nest configuration
+
+    src/main.ts
+        bootstrap function calls nest factory to create nest js with the root module(AppModule) 
+        app listen method and then provide the port no to it.
+
+    src/app.module.ts 
+        docorator : @Module from next js common module. this converts class into a module.
+
+    Some file to delete as not needed at this point
+    app.controller.spec.ts
+    app.controller.ts
+    app.service.ts
+
+---- help -------------------
+nest g --help 
+----------------------------------  New Module -----------------
+
+nest g module tasks
+
+---------------- NestJS Controllers ------------------
+1. Responisible for handling incoming requests and returning responses to the client.
+2. Bound to a specific path e.g /tasks etc.
+3. contains handlers wheich handle endpoints and request methods like GET, POST, DELETE etc.
+4. can take advantage of dependency injection to comnsume providers within the same module.
+
+    --- define controller ---
+    @Controller
+
+    The decorator accepts a string which is the path to be handled by the controller.
+    e.g. 
+    @Controller('/tasks')
+    export class TasksController {
+        ....
+    }
+
+    ---- Handler in a controller ---
+    @Get , @Post , @Delete etc.
+    e.g. 
+    @Controller('/tasks')
+    export class TasksController {
+        @Get()
+        getAllTasks() {
+            ...
+            return ...;
+        }
+
+        @Post()
+        createTask() {
+            ....
+            return ... ;
+        }
+    }
+
+    ----------- Create a controller -------------
+
+    nest g controller tasks --no-spec 
+
+    ---------------------------------------------
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
