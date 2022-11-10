@@ -89,7 +89,46 @@ nest g module tasks
 
     ---------------------------------------------
 
-    
+    --------------- Nestjs providers ------------
+
+    1. Nestjs providers can be injected into constructors if decoratored as @injectable, via dependency injection. 
+    2. Can be a plain value, a class, sync/async factory etc.
+    3. Providers must be proviced to a module for them to be usable. 
+    4. Can be exported from a module - and then be available to other modules that import it. 
+
+        --------------- services ----------
+        1. Defined as privicers. Not all providers are services. 
+        2. Singleton when wrapperd with @injectable() and provided to a module.
+        3. The main soruce of business logic. for e.g a service will be called from a controller to validate data, create an item in database and return a response. 
+
+    Dependency injection
+    Any component winin the NestJS echosystems can inject a provider that is decorated with the @Injectable. 
+
+    We define the dependencies in the constructor of the class. NestJS will take care of the injection for us, and it will then be available as a class property.
+
+    import { TasksService } from './tasks.service' ; 
+        @Controller('/tasks')
+    export class TasksController {
+        constructor (private tasksService: TaskService) {}
+
+        @Get()
+        async getAllTasks() {
+            return await this.tasksService.getAllTasks();
+        }
+
+    }
+
+    ---------------- create a Task service -----------------------------
+    nest g service tasks --no-spec 
+
+
+
+
+
+
+
+
+
 
 
 
