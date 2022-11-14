@@ -1,3 +1,5 @@
+Project ch 27 done
+Current ch 28
 Cli
 
 -- new project
