@@ -1,5 +1,5 @@
-Project ch 27 done
-Current ch 28
+Project ch 31 done
+Current ch 32
 Cli
 
 -- new project
@@ -122,6 +122,29 @@ nest g module tasks
 
     ---------------- create a Task service -----------------------------
     nest g service tasks --no-spec 
+
+    ---------- NestJS pipes ---------------
+
+    npm i class-validator
+
+    npm i class-transformer
+
+    main.ts add 
+    app.useGlobalPipes(new ValidationPipe());
+        -------------- usage -------
+    import { IsNotEmpty } from 'class-validator';
+
+export class CreateTaskDto {
+  @IsNotEmpty()
+  title: string;
+
+  @IsNotEmpty()
+  description: string;
+}
+----------------------------
+
+
+
 
 
 

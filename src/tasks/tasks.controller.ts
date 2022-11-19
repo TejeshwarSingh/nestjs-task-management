@@ -7,13 +7,17 @@ import {
   Patch,
   Post,
   Query,
+  Logger,
 } from '@nestjs/common';
+
 import { TasksService } from './tasks.service';
 import { Task, TaskStatus } from './tasks.model';
 import { title } from 'process';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { get } from 'http';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
+import { UpdateTaskStatusDto } from './dto/update-task-status.dto';
+import { Console } from 'console';
 
 @Controller('tasks')
 export class TasksController {
@@ -41,8 +45,9 @@ export class TasksController {
   @Patch('/:id/status')
   updateTask(
     @Param('id') id: string,
-    @Body('status') status: TaskStatus,
+    @Body() updateTaskStatusDto: UpdateTaskStatusDto,
   ): Task {
+    const { status } = updateTaskStatusDto;
     return this.tasksService.updateTaskStatus(id, status);
   }
 
