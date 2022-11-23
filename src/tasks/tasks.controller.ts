@@ -11,13 +11,14 @@ import {
 } from '@nestjs/common';
 
 import { TasksService } from './tasks.service';
-import { Task, TaskStatus } from './tasks.model';
+import { TaskStatus } from './task-status.enum';
 import { title } from 'process';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { get } from 'http';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { UpdateTaskStatusDto } from './dto/update-task-status.dto';
 import { Console } from 'console';
+import { Task } from './task.entity';
 
 @Controller('tasks')
 export class TasksController {
@@ -33,24 +34,25 @@ export class TasksController {
   }
 
   @Get('/:id')
-  getTaskById(@Param('id') id: string): Task {
-    return this.tasksService.getTaskById(id);
+  async getTaskById(@Param('id') id: string): Promise<Task> {
+    return await this.tasksService.getTaskById(id);
   }
 
+  /*
   @Delete('/:id')
-  deleteTaskById(@Param('id') id: string): void {
-    return this.tasksService.deleteTask(id);
+  async deleteTaskById(@Param('id') id: string) {
+    return await this.tasksService.deleteTask(id);
   }
 
   @Patch('/:id/status')
-  updateTask(
+  async updateTask(
     @Param('id') id: string,
     @Body() updateTaskStatusDto: UpdateTaskStatusDto,
-  ): Task {
+  ): Promise<Task> {
     const { status } = updateTaskStatusDto;
-    return this.tasksService.updateTaskStatus(id, status);
+    return await this.tasksService.updateTaskStatus(id, status);
   }
-
+*/
   /***** alternate ways 
   @Post()
   createTask(@Body() body) {
@@ -72,10 +74,10 @@ export class TasksController {
 
   /******* use dto instead */
   @Post()
-  createTask(@Body() createTaskDto: CreateTaskDto): Task {
+  async createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {
     //console.log('title', title);
     //console.log('description',description);
 
-    return this.tasksService.createTask(createTaskDto);
+    return await this.tasksService.createTask(createTaskDto);
   }
 }

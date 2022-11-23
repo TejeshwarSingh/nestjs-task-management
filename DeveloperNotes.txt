@@ -1,5 +1,5 @@
-Project ch 36 done
-Current ch 37
+Project ch 42 done
+Current ch 43
 Cli
 
 -- new project
@@ -142,6 +142,44 @@ export class CreateTaskDto {
   description: string;
 }
 ----------------------------
+
+
+----- install docker and postgres admin 4 ----
+
+docker run --name postgres-nest -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+
+-name name of the image locally
+-e environment variable
+-d batch mode will work even if command window closes
+postgres is the actual container name
+
+    -- listing -- 
+docker container ls 
+CONTAINER ID   IMAGE      COMMAND                  CREATED          STATUS         PORTS                    NAMES
+58562cc51e1d   postgres   "docker-entrypoint.s…"   10 seconds ago   Up 9 seconds   0.0.0.0:5432->5432/tcp   postgres-nest
+
+-- stop -- 
+docker container stop postgres-nest
+
+
+------ pg admin ------
+Password : tj73
+
+---------  npm add type orm etc -----
+
+npm i typeorm
+npm i @nestjs/typeorm
+-- database driver for postgres --
+npm i pg
+
+--------------------------
+
+
+
+
+
+
+
 
 
 
