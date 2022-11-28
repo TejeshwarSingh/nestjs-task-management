@@ -165,6 +165,9 @@ docker container stop postgres-nest
 ------ pg admin ------
 Password : tj73
 
+TestMysql
+MYSQL_ROOT_PASSWORD : tj73
+
 ---------  npm add type orm etc -----
 
 npm i typeorm
