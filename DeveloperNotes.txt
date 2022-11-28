@@ -178,7 +178,38 @@ npm i pg
 --------------------------
 
 
+----------------------- notes from test nest rd -------------
 
+nest g module jlg_temp
+
+nest g controller jlg_temp --no-spec 
+nest g service jlg_temp --no-spec 
+
+
+rest_api_proj_systems
+
+nest g module rest_api_proj_systems
+
+nest g controller rest_api_proj_systems --no-spec 
+nest g service rest_api_proj_systems --no-spec 
+
+typeorm-model-generator -h localhost -d tempdb -u sa -x !Passw0rd -e mssql -o .
+
+typeorm-model-generator -h Riddler.scgts.com -d tims2dev.scgts.com -u GTSREST -x GTSREST -e oracle -o ./output
+
+{
+    name: "GTSRESTconnection",
+    type: "oracle",
+    host: "Riddler.scgts.com",
+    port: 1521,
+    username: "GTSREST",
+    password: "GTSREST",
+    serviceName: "tims2dev.scgts.com",
+    //database: "task-management",
+    autoLoadEntities: true,
+    synchronize: false,
+  }
+  
 
 
 
